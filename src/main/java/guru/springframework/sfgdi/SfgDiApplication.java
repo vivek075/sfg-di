@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 
-@ComponentScan(basePackages = {"guru.springframework.sfgdi"})       //This line is just for illustration purpose, to show usage of @ComponentScan annotation
+//@ComponentScan(basePackages = {"guru.springframework.sfgdi","com.springframework.pets"})       //This line is just for illustration purpose, to show usage of @ComponentScan annotation
 @SpringBootApplication
 public class SfgDiApplication {
 
@@ -17,6 +17,9 @@ public class SfgDiApplication {
         LifeCycleDemoBean lifeCycleDemoBean = (LifeCycleDemoBean) ctx.getBean("lifeCycleDemoBean");
         /*String message                      = myController.sayHello();
         System.out.println(message);*/
+        System.out.println("------- Pet Controller -----");
+        PetController petController = ctx.getBean(PetController.class);
+        System.out.println(petController.whichPetIsTheBest());
         System.out.println("------- I18N -------------");
         I18nController i18nController =
                 (I18nController) ctx.getBean("i18nController");
