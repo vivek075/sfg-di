@@ -1,16 +1,20 @@
 package guru.springframework.sfgdi;
 
 import guru.springframework.sfgdi.controllers.*;
+import guru.springframework.sfgdi.services.LifeCycleDemoBean;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
 
+@ComponentScan(basePackages = {"guru.springframework.sfgdi"})       //This line is just for illustration purpose, to show usage of @ComponentScan annotation
 @SpringBootApplication
 public class SfgDiApplication {
 
     public static void main(String[] args) {
         ConfigurableApplicationContext ctx  = SpringApplication.run(SfgDiApplication.class, args);
         MyController myController           = ctx.getBean(MyController.class);
+        LifeCycleDemoBean lifeCycleDemoBean = (LifeCycleDemoBean) ctx.getBean("lifeCycleDemoBean");
         /*String message                      = myController.sayHello();
         System.out.println(message);*/
         System.out.println("------- I18N -------------");

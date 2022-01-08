@@ -10,7 +10,7 @@ public class SetterInjectedController {
     GreetingService greetingService;
 
     @Autowired
-    public void setGreetingService(@Qualifier("setterGreetingServiceImpl") GreetingService greetingService) {
+    public void setGreetingService(@Qualifier("setterGreetingService") GreetingService greetingService) {
         this.greetingService = greetingService;
     }
 
